@@ -75,16 +75,55 @@ class HolaConversionPage extends StatelessWidget {
         ),
         // Se eliminan las acciones ya que los íconos se han movido dentro del widget de título
       ),
-      body: ListView(
-        children: const <Widget>[
-          ListTile(
-            leading: Icon(Icons.circle_outlined),
-            title: Text('Opción 1'),
+      body: Column(
+        children: <Widget>[
+          // Nuevo texto y íconos entre el título y la lista de opciones
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
+            child: Row(
+              children: <Widget>[
+                const Text(
+                  'Tus productos',
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black87,
+                  ),
+                ),
+                const Spacer(), // Empuja los íconos a la derecha
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  child: Icon(Icons.visibility, color: Colors.grey[700]),
+                ),
+                Icon(Icons.edit, color: Colors.grey[700]),
+              ],
+            ),
           ),
-          Divider(height: 1),
-          ListTile(
-            leading: Icon(Icons.circle_outlined),
-            title: Text('Opción 2'),
+          // La lista de opciones existente
+          Expanded( // Permite que el ListView ocupe el espacio restante
+            child: ListView(
+              children: const <Widget>[
+                ListTile(
+                  leading: Icon(Icons.circle_outlined),
+                  title: Text('Opción 1'),
+                ),
+                Divider(height: 1),
+                ListTile(
+                  leading: Icon(Icons.circle_outlined),
+                  title: Text('Opción 2'),
+                ),
+                // Agrega más opciones si es necesario
+                ListTile(
+                  leading: Icon(Icons.circle_outlined),
+                  title: Text('Opción 3'),
+                ),
+                Divider(height: 1),
+                ListTile(
+                  leading: Icon(Icons.circle_outlined),
+                  title: Text('Opción 4'),
+                ),
+              ],
+            ),
           ),
         ],
       ),
