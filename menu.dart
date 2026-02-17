@@ -46,13 +46,13 @@ class BCPHome extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start, // Alinea todo a la izquierda
                 children: [
                   // Título de sección "Tus productos" con iconos de ojo y lápiz
-                  _buildSectionTitle("Tus productos", icons: [Icons.visibility_outlined, Icons.edit_outlined]),
+                  _buildSectionTitle("Tus productos", icons: [Icons.visibility, Icons.edit]),
                   const SizedBox(height: 10), // Espaciado
 
                   // Tarjeta de Cuenta de Ahorros
                   _buildProductItem(
-                      title: "Ahorro Soles",
-                      account: "**** 4567",
+                      title: "CUENTAS DE",
+                      account: "**** 3035",
                       amount: "S/ *****",
                       // Usamos un icono de FontAwesome que se parece al logo naranja
                       leadingIcon: const Icon(Icons.circle, color: Colors.orange, size: 30)
@@ -61,13 +61,14 @@ class BCPHome extends StatelessWidget {
 
                   // Tarjeta de Tarjeta de Crédito
                   _buildProductItem(
-                      title: "Visa Platinum",
-                      account: "**** 4567",
+                      title: "CTS",
+                      account: "**** 6081",
                       amount: "S/ *****",
                       subtitle: "Monto consumido",
                       // Icono de Visa de FontAwesome
                       leadingIcon: const Icon(Icons.vignette, color: Color(0xFF002A8D), size: 30)
                   ),
+                  const Divider(), // Línea divisoria sutil
 
                   // Botón "Ver todos"
                   Center(
@@ -75,7 +76,7 @@ class BCPHome extends StatelessWidget {
                       onPressed: () {
                         // Acción al presionar "Ver todos"
                       },
-                      child: const Text("Ver todos", style: TextStyle(color: Colors.orange, fontWeight: FontWeight.bold)),
+                      child: const Text("Ver todos", style: TextStyle(color: Colors.orange, fontWeight: FontWeight.w400)),
                     ),
                   ),
                   const SizedBox(height: 20),
@@ -107,33 +108,62 @@ class BCPHome extends StatelessWidget {
   Widget _buildHeader() {
     return Container(
       // Padding para dar espacio interno, especialmente para la barra de estado superior
-      padding: const EdgeInsets.only(top: 60, left: 20, right: 20, bottom: 30),
+      padding: const EdgeInsets.only(top: 20, left: 20, right: 10, bottom: 10),
       width: double.infinity,
       color: const Color(0xFF002A8D), // Color azul BCP
-      child: Row(
+      child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween, // Separa los elementos a los extremos
-        crossAxisAlignment: CrossAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Saludo a la izquierda
-          const Text(
-            "Hola, Juanca",
-            style: TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold),
-          ),
+                
+
           // Grupo derecho: Logo y Campana
           Row(
+             mainAxisAlignment: MainAxisAlignment.spaceBetween, // Distribuye "OCL" a la izquierda y los íconos a la derecha
             children: [
+              const Text(
+                  'OCL',
+                  style: TextStyle(
+                    color: Colors.white, // Asegura que el texto "OCL" sea blanco
+                    fontSize: 20,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+              
               // --- NUEVO: SE AGREGA LA IMAGEN DEL LOGO ---
               // Asegúrate de haber configurado el asset en pubspec.yaml como se indicó.
-              Image.asset(
-                 'assets/image_1.png',
-                 height: 30, // Altura controlada para que no sea muy grande
-                 fit: BoxFit.contain,
-              ),
-              const SizedBox(width: 15), // Espacio entre el logo y la campana
-              // Icono de notificaciones
-              const Icon(Icons.notifications_none, color: Colors.white, size: 28),
+              //Image.asset(
+              //  'assets/image_1.png',
+              //   height: 30, // Altura controlada para que no sea muy grande
+              //  fit: BoxFit.contain,
+             // ),
+              
+              
+ // Contenedor para los íconos de búsqueda y notificación
+                Row(
+                  mainAxisSize: MainAxisSize.min, // Mantiene los íconos juntos
+                  children: const <Widget>[
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 30.0),
+                      child: Icon(Icons.help, color: Colors.white, size: 26), // El ícono de ayuda
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(right: 10.0), // Mantiene el padding derecho original
+                      child: Icon(Icons.notifications, color: Colors.white, size: 26), // El ícono de notificación
+                    ),
+                  ],
+                ),
+              
             ],
+          ),
+          
+          SizedBox(height: 20),
+           // Saludo a la izquierda
+          const Text(
+            "Hola, CONVERSION",
+            style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.w400),
           )
+          
         ],
       ),
     );
@@ -211,10 +241,12 @@ class BCPHome extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween, // Distribuye el espacio equitativamente
       crossAxisAlignment: CrossAxisAlignment.start, // Alinea arriba por si los textos tienen diferente largo
       children: [
+        _quickActionItem(Icons.swap_horiz_rounded, "Transferir\ndinero"),
+        _quickActionItem(Icons.water_drop_outlined, "Pagar\nservicios"),
         _quickActionItem(Icons.send_rounded, "Yapear a\ncelular"),
         _quickActionItem(Icons.qr_code_scanner, "Pagar\ncon QR"),
-        _quickActionItem(Icons.water_drop_outlined, "Pagar\nservicios"),
-        _quickActionItem(Icons.swap_horiz_rounded, "Transferir\ndinero"),
+        
+        
       ],
     );
   }
