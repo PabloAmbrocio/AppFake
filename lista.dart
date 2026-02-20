@@ -36,18 +36,13 @@ class DetalleCuentaPage extends StatelessWidget {
         elevation: 0,
         leading: const Icon(Icons.arrow_back, color: Colors.white),
         title: const Text("Cuentas", style: TextStyle(color: Colors.white)),
-        actions: [
-          // Espacio para el logo en la esquina superior derecha
-          Padding(
-            padding: const EdgeInsets.all(12.0),
-            child: Image.asset('assets/logo_bcp.png', fit: BoxFit.contain),
-          ),
-        ],
+        
       ),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            
             // --- SECCIÓN DE INFORMACIÓN DE CUENTA ---
             Padding(
               padding: const EdgeInsets.all(20.0),
@@ -59,7 +54,7 @@ class DetalleCuentaPage extends StatelessWidget {
                     children: [
                       const Text(
                         "CUENTAS DE AHORRO",
-                        style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black87),
+                        style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black87,fontSize: 18),
                       ),
                       const Icon(Icons.edit_outlined, color: naranjaBCP, size: 20),
                     ],
@@ -72,23 +67,26 @@ class DetalleCuentaPage extends StatelessWidget {
                       const Icon(Icons.share_outlined, color: naranjaBCP, size: 20),
                     ],
                   ),
+                  
+                  // --- SECCIÓN DE SALDO DISPONIBLE ---
                   const SizedBox(height: 25),
-                  const Text("Disponible", style: TextStyle(color: Colors.grey, fontSize: 16)),
+                  const Text("Disponible", style: TextStyle(color: Colors.grey, fontSize: 14)),
                   const Text(
                     "S/ 36.64",
-                    style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold, color: azulBCP),
+                    style: TextStyle(fontSize: 36, fontWeight: FontWeight.w400, color: azulBCP),
                   ),
                 ],
               ),
             ),
 
-            const Divider(thickness: 1, color: Color(0xFFEEEEEE)),
+            const Divider(thickness: 1, color: Color(0xFFEEEEEE)), // Linea divisora
 
-            // --- SECCIÓN DE ACCIONES RÁPIDAS (Botones naranjas) ---
+            // --- SECCIÓN DE BOTONES NARANJAS (ACCIONES RÁPIDAS) ---
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   _buildActionButton(Icons.swap_horiz, "Transferir\ndinero", naranjaBCP),
                   _buildActionButton(Icons.water_drop_outlined, "Pagar\nservicios", naranjaBCP),
@@ -98,7 +96,7 @@ class DetalleCuentaPage extends StatelessWidget {
               ),
             ),
 
-            const Divider(thickness: 1, color: Color(0xFFEEEEEE)),
+            const Divider(thickness: 1, color: Color(0xFFEEEEEE)), // Linea divisora
 
             // --- SECCIÓN DE MOVIMIENTOS ---
             Padding(
@@ -119,13 +117,16 @@ class DetalleCuentaPage extends StatelessWidget {
             ),
 
             const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20),
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
               child: Text("Hoy", style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold)),
             ),
 
             // Lista de transacciones
             _buildMovementItem("Pago YAPE a 194918", "19 Febrero", "-5.00", true),
+            const Divider(thickness: 1, color: Color(0xFFEEEEEE)), // Linea divisora
+            
             _buildMovementItem("Pago YAPE a 191092", "19 Febrero", "-6.00", true),
+            const Divider(thickness: 1, color: Color(0xFFEEEEEE)), // Linea divisora
           ],
         ),
       ),
