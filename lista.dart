@@ -72,7 +72,7 @@ class DetalleCuentaPage extends StatelessWidget {
                   const SizedBox(height: 25),
                   const Text("Disponible", style: TextStyle(color: Colors.grey, fontSize: 14)),
                   const Text(
-                    "S/ 36.64",
+                    "S/ 25.14",
                     style: TextStyle(fontSize: 36, fontWeight: FontWeight.w400, color: azulBCP),
                   ),
                 ],
@@ -116,17 +116,71 @@ class DetalleCuentaPage extends StatelessWidget {
               ),
             ),
 
+            // --- LISTA DE MOVIMIENTOS ---
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
               child: Text("Hoy", style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold)),
             ),
 
             // Lista de transacciones
-            _buildMovementItem("Pago YAPE a 194918", "19 Febrero", "-5.00", true),
+            _buildMovementItem("PA", "Pago YAPE a 191092", "20 Febrero", "-15.00", true),
             const Divider(thickness: 1, color: Color(0xFFEEEEEE)), // Linea divisora
             
-            _buildMovementItem("Pago YAPE a 191092", "19 Febrero", "-6.00", true),
+            _buildMovementItem("YQ", "YQ-IZI*GASTRONOMIA", "20 Febrero", "-3.00", true),
             const Divider(thickness: 1, color: Color(0xFFEEEEEE)), // Linea divisora
+            
+            
+            /////////////////////////////
+             const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 24),
+              child: Text("Este mes", style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold)),
+            ),
+
+            // Lista de transacciones
+             _buildMovementItem("PA", "Pago YAPE a 191978", "19 Febrero", "-12.00", true),
+            const Divider(thickness: 1, color: Color(0xFFEEEEEE)), // Linea divisora
+            
+            _buildMovementItem("PA", "Pago YAPE a 194918", "19 Febrero", "-5.00", true),
+            const Divider(thickness: 1, color: Color(0xFFEEEEEE)), // Linea divisora
+            
+            _buildMovementItem("PA", "Pago YAPE a 191092", "19 Febrero", "-6.00", true),
+            const Divider(thickness: 1, color: Color(0xFFEEEEEE)), // Linea divisora
+                   
+             _buildMovementItem("PA", "Pago YAPE a 191953", "18 Febrero", "-10.50", true),
+            
+            const Divider(thickness: 1, color: Color(0xFFEEEEEE)), // Linea divisora
+             _buildMovementItem("PA", "Pago YAPE a 191010", "18 Febrero", "-12.50", true),
+            const Divider(thickness: 1, color: Color(0xFFEEEEEE)), // Linea divisora
+            
+             _buildMovementItem("SB", "SB - 108 PLAZA NOR", "17 Febrero", "-11.00", true),
+            const Divider(thickness: 1, color: Color(0xFFEEEEEE)), // Linea divisora
+            
+             _buildMovementItem("PL", "PLIN-Christian Rau", "17 Febrero", "-8.00", true),
+            const Divider(thickness: 1, color: Color(0xFFEEEEEE)), // Linea divisora
+            
+             _buildMovementItem("PL", "PLIN-Kevin Daniel", "17 Febrero", "-12.00", true),
+            const Divider(thickness: 1, color: Color(0xFFEEEEEE)), // Linea divisora
+            
+             _buildMovementItem("DE", "DEUDA CREDITO", "17 Febrero", "-1,387.31", true),
+            const Divider(thickness: 1, color: Color(0xFFEEEEEE)), // Linea divisora
+            
+             _buildMovementItem("PA", "Pago YAPE a 003898", "16 Febrero", "-300.00", true),
+            const Divider(thickness: 1, color: Color(0xFFEEEEEE)), // Linea divisora
+            
+             _buildMovementItem("TR", "TRAN.CTAS.TERC.BM", "16 Febrero", "-75.00", true),
+            const Divider(thickness: 1, color: Color(0xFFEEEEEE)), // Linea divisora
+            
+             _buildMovementItem("TR", "TRAN.CTAS.TERC.BM", "16 Febrero", "-869.00", true),
+            const Divider(thickness: 1, color: Color(0xFFEEEEEE)), // Linea divisora
+            
+             _buildMovementItem("JO", "JOCKEY PLAZA", "16 Febrero", "-25.00", true),
+            const Divider(thickness: 1, color: Color(0xFFEEEEEE)), // Linea divisora
+            
+             _buildMovementItem("TO", "TOTUS JOCKEY PLAZ", "16 Febrero", "-5.80", true),
+            const Divider(thickness: 1, color: Color(0xFFEEEEEE)), // Linea divisora
+            
+            
+            
           ],
         ),
       ),
@@ -147,6 +201,7 @@ class DetalleCuentaPage extends StatelessWidget {
     );
   }
 
+  
   // Función para construir los botones circulares de acción
   Widget _buildActionButton(IconData icon, String label, Color color) {
     return Column(
@@ -167,11 +222,11 @@ class DetalleCuentaPage extends StatelessWidget {
   }
 
   // Función para construir cada fila de movimiento (transacción)
-  Widget _buildMovementItem(String title, String date, String amount, bool isNegative) {
+  Widget _buildMovementItem(String move, String title, String date, String amount, bool isNegative) {
     return ListTile(
-      leading: const CircleAvatar(
+      leading: CircleAvatar(
         backgroundColor: Color(0xFF4A90E2),
-        child: Text("PA", style: TextStyle(color: Colors.white, fontSize: 12)),
+        child: Text(move, style: TextStyle(color: Colors.white, fontSize: 12)),
       ),
       title: Text(title, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14)),
       subtitle: Text(date, style: const TextStyle(color: Colors.grey, fontSize: 12)),
