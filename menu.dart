@@ -47,7 +47,7 @@ class BCPHome extends StatelessWidget {
                 children: [
                   // Título de sección "Tus productos" con iconos de ojo y lápiz
                   _buildSectionTitle("Tus productos", icons: [Icons.visibility, Icons.edit]),
-                  const SizedBox(height: 10), // Espaciado
+                  const SizedBox(height: 20), // Espaciado
 
                   // Tarjeta de Cuenta de Ahorros
                   _buildProductItem(
@@ -64,7 +64,6 @@ class BCPHome extends StatelessWidget {
                       title: "CTS",
                       account: "**** 6081",
                       amount: "S/ *****",
-                      subtitle: "Monto consumido",
                       // Icono de Visa de FontAwesome
                       leadingIcon: const Icon(Icons.vignette, color: Color(0xFF002A8D), size: 30)
                   ),
@@ -79,15 +78,15 @@ class BCPHome extends StatelessWidget {
                       child: const Text("Ver todos", style: TextStyle(color: Colors.orange, fontWeight: FontWeight.w400)),
                     ),
                   ),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 30),
 
                   // 3. SECCIÓN DE ACCIONES RÁPIDAS (Botones naranjas redondos)
                   _buildQuickActions(),
-                  const SizedBox(height: 30),
+                  const SizedBox(height: 38),
 
                   // 4. SECCIÓN "LO MÁS DESTACADO" (Carrusel horizontal)
                   _buildSectionTitle("Lo más destacado"),
-                  const SizedBox(height: 15),
+                  const SizedBox(height: 20),
                   _buildHighlights(), // Llama al widget del carrusel
                 ],
               ),
@@ -175,7 +174,7 @@ class BCPHome extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(title, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Color(0xFF002A8D))),
+        Text(title, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: Color(0xFF002A8D))),
         // Si hay iconos, los mostramos en fila
         if (icons != null)
           Row(
@@ -208,9 +207,9 @@ class BCPHome extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(title, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+                Text(title, style:  TextStyle(color: Color(0xFF020202), fontWeight: FontWeight.w300, fontSize: 14)),
                 const SizedBox(height: 4),
-                Text(account, style: TextStyle(color: Colors.grey[600], fontSize: 14)),
+                Text(account, style: TextStyle(color: Colors.grey[600], fontSize: 12)),
               ],
             ),
           ),
@@ -220,7 +219,7 @@ class BCPHome extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  Text(amount, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
+                  Text(amount, style: TextStyle(color: Color(0xFF020202), fontWeight: FontWeight.w300, fontSize: 16)),
                   const SizedBox(width: 8),
                   const Icon(Icons.chevron_right, color: Colors.grey),
                 ],
@@ -262,9 +261,9 @@ class BCPHome extends StatelessWidget {
             color: Color(0xFFFF7A00), // Color naranja BCP
             shape: BoxShape.circle,
           ),
-          child: Icon(icon, color: Colors.white, size: 26),
+          child: Icon(icon, color: Colors.white, size: 18),
         ),
-        const SizedBox(height: 10),
+        const SizedBox(height: 18),
         // El texto debajo del círculo
         Text(label, textAlign: TextAlign.center, style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w500)),
       ],
