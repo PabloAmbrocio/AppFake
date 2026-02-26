@@ -65,6 +65,7 @@ class DashboardScreen extends StatelessWidget {
               icon: Icons.account_balance_wallet_outlined,
               title: 'Cuentas',
               childrenContent: accountWidgets, // Pass the generated account widgets
+              trailingIcon: const Icon(Icons.keyboard_arrow_up, color: Colors.grey), // Replaced down arrow with up arrow
             ),
 
             const SizedBox(height: 15),
@@ -92,11 +93,12 @@ class DashboardScreen extends StatelessWidget {
     );
   }
 
-  // Widget para las filas expandibles, now accepting a list of children
+  // Widget para las filas expandibles, now accepting a list of children and a customizable trailing icon
   Widget _buildExpansionItem({
     required IconData icon,
     required String title,
     List<Widget> childrenContent = const [], // New parameter for custom children
+    Widget trailingIcon = const Icon(Icons.keyboard_arrow_down, color: Colors.grey), // Custom trailing icon with default
   }) {
     return Theme(
       data: ThemeData().copyWith(dividerColor: Colors.transparent),
@@ -111,11 +113,11 @@ class DashboardScreen extends StatelessWidget {
             color: Color(0xFF0C1B4A),
           ),
         ),
-        trailing: const Icon(Icons.keyboard_arrow_down, color: Colors.grey),
+        trailing: trailingIcon, // Use the provided trailing icon
         children: childrenContent.isNotEmpty
             ? childrenContent.map<Widget>((widget) =>
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0), // Apply 16.0 horizontal padding to each child
+                  padding: const EdgeInsets.symmetric(horizontal: 20.0), // Apply 16.0 horizontal padding to each child
                   child: widget,
                 )
               ).toList()
@@ -228,8 +230,8 @@ class AccountDetailItem extends StatelessWidget {
                   account.type,
                   style: const TextStyle(
                     fontSize: 13, // Changed from 14 to 13 (one size smaller)
-                    fontWeight: FontWeight.bold, // Changed from w500 to bold
-                    color: Colors.black, // Changed from specific blue to black
+                    fontWeight: FontWeight.w600, // Changed from w500 to bold
+                    color: Color(0xFF101010), // Changed from specific blue to black
                   ),
                 ),
                 const SizedBox(height: 2),
@@ -250,8 +252,8 @@ class AccountDetailItem extends StatelessWidget {
                 account.balance,
                 style: const TextStyle(
                   fontSize: 13, // Changed from 14 to 13 (one size smaller)
-                  fontWeight: FontWeight.bold, // Changed from w500 to bold
-                  color: Colors.black, // Changed from specific blue to black
+                  fontWeight: FontWeight.w600, // Changed from w500 to bold
+                  color: Color(0xFF101010), // Changed from specific blue to black
                 ),
               ),
               const SizedBox(width: 4),
